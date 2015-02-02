@@ -5,7 +5,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.snowball import SnowballStemmer
 
-article_data = pickle.load(open('/Users/bauer/insight/teleborder/data/nytimes/article_data1.txt','r'))
+article_data = pickle.load(open('/Users/bauer/insight/teleborder/data/nytimes/immigration/article_data2.txt','r'))
 print '{0} articles read in from file'.format(len(article_data))
 
 stop = stopwords.words('english')
@@ -35,10 +35,10 @@ for article in article_data:
                 all_words[stemmed] += 1
 
 
-finder = nltk.collocations.BigramCollocationFinder.from_words(stemmed_words)
-finder.apply_freq_filter(10)
-print finder.nbest(bigram_measures.pmi, 100)  
-exit(0)
+# finder = nltk.collocations.BigramCollocationFinder.from_words(stemmed_words)
+# finder.apply_freq_filter(10)
+# print finder.nbest(bigram_measures.pmi, 100)  
+# exit(0)
 
 
 for word in sorted(all_words, key=all_words.get, reverse=True):

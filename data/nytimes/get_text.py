@@ -40,10 +40,10 @@ for word in negative_words:
 
 
 filenames = []
-dirs = os.listdir('/Users/bauer/insight/teleborder/data/nytimes')
+dirs = os.listdir('/Users/bauer/insight/teleborder/data/nytimes/immigration')
 for dir in dirs:
     if re.match('^20', dir):
-        dir2 = os.path.join('/Users/bauer/insight/teleborder/data/nytimes',dir)
+        dir2 = os.path.join('/Users/bauer/insight/teleborder/data/nytimes/immigration',dir)
         files = os.listdir(dir2)
         for fn in files:
             if re.match('^log_api', fn):
@@ -92,34 +92,34 @@ for filename in filenames:
         # pickle.dump(article_data, open('/Users/bauer/insight/teleborder/data/nytimes/article_text/article{0}.txt'.format(acount), 'w'))
         article_tosave.append(article_data)
         acount += 1
-
-        tokens = nltk.word_tokenize(text)
-        words = [w.lower().decode('utf-8') for w in tokens]
-        words = [i for i in words if i not in stop]
-
-        stemmer = SnowballStemmer("english")
-        stemmed = []
-        for word in words:
-            stemmed.append(stemmer.stem(word))
-
-        score = 0
-        count = 0
-        for word in stemmed:
-            if word in positive_stemmed:
-                score += 1
-                count += 1
-            if word in negative_stemmed:
-                score -= 1
-                count += 1
-
-        #print 'Score = {0}, Count = {1} pubdate = {2}'.format(score, count, pubdate)
-        article_sents.append(score)
-        article_dates.append(pubdate)
+        # 
+        # tokens = nltk.word_tokenize(text)
+        # words = [w.lower().decode('utf-8') for w in tokens]
+        # words = [i for i in words if i not in stop]
+        # 
+        # stemmer = SnowballStemmer("english")
+        # stemmed = []
+        # for word in words:
+        #     stemmed.append(stemmer.stem(word))
+        # 
+        # score = 0
+        # count = 0
+        # for word in stemmed:
+        #     if word in positive_stemmed:
+        #         score += 1
+        #         count += 1
+        #     if word in negative_stemmed:
+        #         score -= 1
+        #         count += 1
+        # 
+        # #print 'Score = {0}, Count = {1} pubdate = {2}'.format(score, count, pubdate)
+        # article_sents.append(score)
+        # article_dates.append(pubdate)
         
     json_file.close()
 
 # print article_dates
 # print article_sents
-pickle.dump((article_dates,article_sents), open('/Users/bauer/insight/teleborder/data/nytimes/sentiment_data1.txt', 'w'))
-pickle.dump(article_tosave, open('/Users/bauer/insight/teleborder/data/nytimes/article_data1.txt', 'w'))
+# pickle.dump((article_dates,article_sents), open('/Users/bauer/insight/teleborder/data/nytimes/sentiment_data2.txt', 'w'))
+pickle.dump(article_tosave, open('/Users/bauer/insight/teleborder/data/nytimes/immigration/article_data2.txt', 'w'))
 

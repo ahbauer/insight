@@ -1,12 +1,13 @@
-from flask import render_template, request
+from flask import render_template, request, make_response
 from app import app
 import pymysql as mdb
 import numpy as np
 import pandas
+import datetime
 from a_Model import ModelIt
-from predict_h1b import predict_nH1B
+from predict_h1b import predict_nH1B, make_figure
 
-db = mdb.connect(user="anne", host="localhost", db="teleborder", charset='utf8')
+#db = mdb.connect(user="anne", host="localhost", db="teleborder", charset='utf8')
 
 @app.route('/')
 @app.route('/index')
@@ -49,9 +50,20 @@ def teleborder_output():
     n_h1b, ws, ls = predict_nH1B(date)
     n_h1b = int(np.floor(n_h1b + 0.5)/100) * 100 # round it to the 100s
     datestring = date.strftime('%B, %Y')
+    make_figure(date, n_h1b)
     return render_template( 'teleborder_output.html', date = datestring, the_result = n_h1b, 
-    weight1 = '{0:5.3f}'.format(ws[0]), weight2 = '{0:5.3f}'.format(ws[1]), weight3 = '{0:5.3f}'.format(ws[2]),
-    lag1 = '{0}'.format(int(ls[0]+0.5)), lag2 = '{0:d}'.format(int(ls[1]+0.5)), lag3 = '{0:d}'.format(int(ls[2]+0.5)) )
+    w1 = '{0:5.1f}'.format(ws[0]), w2 = '{0:5.1f}'.format(ws[1]), w3 = '{0:5.1f}'.format(ws[2]),
+    w4 = '{0:5.1f}'.format(ws[3]), 
+    #w7 = '{0:5.1f}'.format(ws[6]), w8 = '{0:5.1f}'.format(ws[7]), w9 = '{0:5.1f}'.format(ws[8]),
+    l1 = '{0:d}'.format(int(ls[0]+0.5)), l2 = '{0:d}'.format(int(ls[1]+0.5)), l3 = '{0:d}'.format(int(ls[2]+0.5)),
+    l4 = '{0:d}'.format(int(ls[3]+0.5)) )
+    #l7 = '{0:d}'.format(int(ls[6]+0.5)), l8 = '{0:d}'.format(int(ls[7]+0.5)), l9 = '{0:d}'.format(int(ls[8]+0.5)) )
+
+@app.route('/static/imgs/<path:filename>')
+def return_image (filename):
+    response = make_response(app.send_static_file(filename))
+    response.cache_control.max_age = 0
+    return response
 
 @app.route('/input')
 def cities_input():
