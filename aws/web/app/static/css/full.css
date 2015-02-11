@@ -1,0 +1,57 @@
+/*!
+ * Start Bootstrap - Full HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    margin-top: 100px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+.full {
+    /*background: url("{{url_for('return_image',filename='imgs/dynamicfig.png')}}") no-repeat center center fixed;*/
+    background: url('../visa_big.gif') no-repeat center center fixed;
+    /*background: url("{{url_for('static',filename='imgs/visa_big.gif')}}") no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.whitebox {
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: white;
+    border: 3px solid #000000;
+    border-radius: 4px;
+    /*width: 860px;*/
+    display: inline-block
+}
+
+
+a:link {
+    color: #000000;
+}
+
+/* visited link */
+a:visited {
+    color: #000000;
+}
+
+/* mouse over link */
+a:hover {
+    color: #000000;
+}
+
+/* selected link */
+a:active {
+    color: #000000;
+}
+
+.red .active a,
+.red .active a:hover,
+.red {
+    background-color: red;
+}

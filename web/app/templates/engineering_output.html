@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>H-1B Ready</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../../static/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/full.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<!--<script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
+	<script src="{{url_for('static',filename='js/jquery.js')}}"></script>
+	<script src="{{url_for('static',filename='js/bootstrap.js')}}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body role="document">
+	
+	
+	
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">H-1B Ready</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+<div class="full">
+
+		<center>
+      <div class="whitebox">
+
+		<ul class="nav nav-pills nav-justified">
+		  <li role="presentation"><a href="teleborder_output?ID={{id}}">All Job Sectors</a></li>
+		  <li role="presentation"><a href="computers?ID={{id}}">Computers</a></li>
+		  <li role="presentation" class="active"><a href="#">Engineering</a></li>
+	   	  <li role="presentation"><a href="finance?ID={{id}}">Finance</a></li>
+		</ul>
+
+	
+        <h1>H-1B Ready</h1>
+		<br>
+		<center>
+        <p><h3>Expect <b>{{the_result}}</b> applications in {{date}}.</h3></p>
+		<br><br>
+		<h4>The model:</h4>
+		<br>
+		<img src="{{url_for('return_image',filename='imgs/dynamicfig.png')}}" alt="model plot", width=600>
+		<!-- <img src="{{url_for('static',filename='imgs/dynamicfig.png')}}" alt="Another example plot", width=600> -->
+		<!-- <img src="{{url_for('static',filename='imgs/temp.png')}}" alt="An example plot"> -->
+		
+		<br><br>
+		
+		
+<!--
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+		  Model Features
+		</button>
+-->
+
+		
+
+		<!-- <div class="collapse" id="collapseExample"> -->
+		
+		<h3>Feature Importances:</h3>
+		<br>
+		<img src="{{url_for('return_image',filename='imgs/pie_static.png')}}" alt="Feature Importances", width=480>
+		
+		<!--
+		<br><br>
+		<h4>The sentiment of economic news articles has a time lag of {{l1}} days and contributes {{w1}}%</h4>
+		<br>
+		<h4>S&P 500 has a time lag of {{l2}} days and contributes {{w2}}%</h4>
+		<br>
+		<h4>Unemployment rates have a time lag of {{l3}} days and contributes {{w3}}%</h4>
+		<br>
+		<h4>The rate of Google searches for economic terms has a time lag of {{l4}} days and contributes {{w4}}%</h4>
+		<!--<br>
+		<h4>The annual modulation of the applications contributes {{w5}}%</h4>
+		<br>
+		<h4>An overall scaling of application rates with time contributes {{w6}}%</h4>-->
+		<!-- <img src="{{url_for('static',filename='imgs/temp.png')}}" alt="An example plot"> -->
+		<br><br>
+		
+	    <!-- </div> -->
+
+		<br><br>
+		
+      </div>
+	</center>
+	 </div>
+	
+
