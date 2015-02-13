@@ -20,7 +20,9 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+	<!--<script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
+	<script src="{{url_for('static',filename='js/jquery.js')}}"></script>
+	<script src="{{url_for('static',filename='js/bootstrap.js')}}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -71,6 +73,15 @@
 
 		<center>
       <div class="whitebox">
+
+		<ul class="nav nav-pills nav-justified">
+		  <li role="presentation" class="active"><a href="#">All Job Sectors</a></li>
+		  <li role="presentation"><a href="computers?ID={{id}}">Computers</a></li>
+		  <li role="presentation"><a href="engineering?ID={{id}}">Engineering</a></li>
+	   	  <li role="presentation"><a href="finance?ID={{id}}">Finance</a></li>
+		</ul>
+
+	
         <h1>H-1B Ready</h1>
 		<br>
 		<center>
@@ -84,8 +95,23 @@
 		
 		<br><br>
 		
-		<h3>The model's features:</h3>
+		
+<!--
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+		  Model Features
+		</button>
+-->
+
+		
+
+		<!-- <div class="collapse" id="collapseExample"> -->
+		
+		<h3>Feature Importances:</h3>
 		<br>
+		<img src="{{url_for('return_image',filename='imgs/pie_static.png')}}" alt="Feature Importances", width=480>
+		
+		<!--
+		<br><br>
 		<h4>The sentiment of economic news articles has a time lag of {{l1}} days and contributes {{w1}}%</h4>
 		<br>
 		<h4>S&P 500 has a time lag of {{l2}} days and contributes {{w2}}%</h4>
@@ -97,10 +123,15 @@
 		<h4>The annual modulation of the applications contributes {{w5}}%</h4>
 		<br>
 		<h4>An overall scaling of application rates with time contributes {{w6}}%</h4>-->
-		
 		<!-- <img src="{{url_for('static',filename='imgs/temp.png')}}" alt="An example plot"> -->
 		<br><br>
+		
+	    <!-- </div> -->
+
+		<br><br>
+		
       </div>
 	</center>
 	 </div>
+	
 

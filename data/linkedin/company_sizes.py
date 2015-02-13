@@ -66,7 +66,7 @@ for result in cur:
     cur_results[name]['state'] = state
     nresults += 1
 print '{0} unique company names out of {1} DB entries'.format(len(cur_results.keys()),nresults)
-for name in cur_results.keys()[0:10]:
+for name in cur_results.keys():
     city = cur_results[name]['city']
     state = cur_results[name]['state']
     if state in geography:
@@ -118,7 +118,7 @@ for name in cur_results.keys()[0:10]:
                 continue
             else:
                 try:
-                    #print 'Best match: {0}, size category: {1}'.format(company['name'],size_codes[company['employeeCountRange']['code']])
+                    print '{0} best match: {1}, size category: {2}'.format(name, company['name'],size_codes[company['employeeCountRange']['code']])
                     company_sizes[lca_company_name] = size_codes[company['employeeCountRange']['code']]
                 except:
                     continue
