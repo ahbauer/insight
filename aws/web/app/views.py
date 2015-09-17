@@ -9,6 +9,10 @@ from a_Model import ModelIt
 from predict_h1b import predict_nH1B, make_figure, make_c3_figure
 app = Flask(__name__)
 
+@app.route('/nyt_health')
+def nyth():
+    return render_template('nyt_health.html')
+
 @app.route('/')
 @app.route('/index')
 @app.route("/teleborder")
